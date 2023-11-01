@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import './widgets/login.dart';
+import './widgets/text_field.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,11 +35,15 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        // backgroundColor: Color(value),
+        // scaffoldBackgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        colorScheme: const ColorScheme.dark(background: Colors.white),
+        // colorScheme:,
         useMaterial3: true,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const Login(),
+      home: const MyHomePage(title: 'Holbegram'),
+      // home: const Login(),
     );
   }
 }
@@ -114,12 +118,22 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Login PLS',
+              style:
+                  TextStyle(color: Color.fromRGBO(0, 0, 0, 1), fontSize: 100),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            TextFieldInput(
+                controller: TextEditingController(),
+                hintText: 'Email',
+                keyboardType: TextInputType.emailAddress),
+            TextFieldInput(
+                controller: TextEditingController(),
+                hintText: 'Password',
+                keyboardType: TextInputType.visiblePassword),
+            TextFieldInput(
+                controller: TextEditingController(),
+                hintText: 'Credit Card',
+                keyboardType: TextInputType.number),
           ],
         ),
       ),
